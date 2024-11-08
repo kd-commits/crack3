@@ -99,8 +99,7 @@ char (*loadFile2D(char *filename, int *size))[COLS]
 		//   Expand array if necessary (realloc).
     	if (SIZE == CAPACITY)
 		{
-			arr = realloc(arr, (CAPACITY + CAP_INCREMENT) * sizeof(char));
-			CAPACITY += CAP_INCREMENT;
+			arr = realloc(arr, CAP_INCREMENT * sizeof(char));
 		}
 	
 		//   Allocate memory for the string (str).
