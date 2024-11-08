@@ -49,7 +49,7 @@ char ** loadFileAA(char *filename, int *size)
 		// Expand array if necessary (realloc).
     	if (SIZE == CAPACITY)
 		{
-			arr = realloc(arr, (CAP_INCREMENT) * sizeof(char *));
+			arr = realloc(arr, (CAPACITY + CAP_INCREMENT) * sizeof(char *));
 			CAPACITY += CAP_INCREMENT;
 		}
 
