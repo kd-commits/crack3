@@ -70,16 +70,16 @@ int main(int argc, char *argv[])
     int count = 0;
     while (fgets(line, PASS_LEN, d))
     {
-		char *nl = strchr(line, '\n');
-		if (nl) *nl = '\0';
-		
+        char *nl = strchr(line, '\n');
+        if (nl) *nl = '\0';
+                  
         char *target = md5(line, strlen(line));
         char *found = substringSearchAA(target, hashes, size); // linear search
         if (found)
         char *found = substringSearchAA(target, hashes, size); // linear search
         if (found)
         {
-			printf("%s %s\n", line, found);
+            printf("%s %s\n", line, found);
             count++;
         }
     }
