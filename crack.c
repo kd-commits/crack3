@@ -30,25 +30,11 @@ int main(int argc, char *argv[])
         printf("Usage: %s hash_file dictionary_file\n", argv[0]);
         exit(1);
     }
-<<<<<<< HEAD
-    
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
     // TODO: Read the hashes file into an array.
     //   Use either a 2D array or an array of arrays.
     //   Use the loadFile function from fileutil.c
     //   Uncomment the appropriate statement.
-<<<<<<< HEAD
     // Read the hashes file into an array.
-    
-=======
-<<<<<<< HEAD
->>>>>>> b576cd3 (qsort challenge | +comments)
     int size;
     char **hashes = loadFileAA(argv[1], &size);
 
@@ -56,19 +42,6 @@ int main(int argc, char *argv[])
     qsort(hashes, size, sizeof(char*), alphabetic);
 
     // TODO
-<<<<<<< HEAD
-=======
-=======
-    // Read the hashes file into an array.
-    
-    int size;
-    char **hashes = loadFileAA(argv[1], &size);
-
-    // CHALLENGE1: Sort the hashes using qsort.
-    qsort(hashes, size, sizeof(char*), alphabetic);
-
-    // TODO
->>>>>>> b576cd3 (qsort challenge | +comments)
     // Open the password file for reading.
     FILE *d = fopen(argv[2], "r");
     if (!d)
@@ -79,9 +52,6 @@ int main(int argc, char *argv[])
 
 
     // TODO:
-<<<<<<< HEAD
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
 >>>>>>> b576cd3 (qsort challenge | +comments)
     // For each password, hash it, then use the array search
     // function from fileutil.h to find the hash.
