@@ -99,6 +99,9 @@ int main(int argc, char *argv[])
 =======
 
     fclose(d);
+    // free line
+    free(line);
+    freeAA(hashes, size);
     printf("%d hashes cracked!\n", count);
     free(line);
     freeAA(hashes, size);
