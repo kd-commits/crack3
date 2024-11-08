@@ -20,6 +20,9 @@
 int alphabetic(const void *a, const void *b);
 int strsearch(const void *key, const void *elem);
 
+int alphabetic(const void *a, const void *b);
+int strsearch(const void *key, const void *elem);
+
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -27,13 +30,21 @@ int main(int argc, char *argv[])
         printf("Usage: %s hash_file dictionary_file\n", argv[0]);
         exit(1);
     }
+    
     // TODO: Read the hashes file into an array.
     //   Use either a 2D array or an array of arrays.
     //   Use the loadFile function from fileutil.c
     //   Uncomment the appropriate statement.
     // Read the hashes file into an array.
+    
     int size;
     char **hashes = loadFileAA(argv[1], &size);
+
+    // CHALLENGE1: Sort the hashes using qsort.
+    qsort(hashes, size, sizeof(char*), alphabetic);
+
+    // TODO
+    // Open the password file for reading.
 
     // CHALLENGE1: Sort the hashes using qsort.
     qsort(hashes, size, sizeof(char*), alphabetic);
@@ -49,19 +60,12 @@ int main(int argc, char *argv[])
 
 
     // TODO:
->>>>>>> b576cd3 (qsort challenge | +comments)
     // For each password, hash it, then use the array search
     // function from fileutil.h to find the hash.
     // If you find it, display the password and the hash.
     // Keep track of how many hashes were found.
     // CHALLENGE1: Use binary search instead of linear search.
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    // TODO
-=======
->>>>>>> b576cd3 (qsort challenge | +comments)
     char *line = malloc(PASS_LEN * sizeof(char));
     int count = 0;
     while (fgets(line, PASS_LEN, d))
@@ -72,41 +76,24 @@ int main(int argc, char *argv[])
         char *target = md5(line, strlen(line));
         char *found = substringSearchAA(target, hashes, size); // linear search
         if (found)
+        char *found = substringSearchAA(target, hashes, size); // linear search
+        if (found)
         {
-            printf("%s %s\n", line, found);
+			printf("%s %s\n", line, found);
             count++;
         }
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
     // When done with the file:
     //   Close the file
     //   Display the number of hashes found.
     //   Free up memory.
-<<<<<<< HEAD
 
     fclose(d);
     printf("%d hashes cracked!\n", count);
     free(line);
     freeAA(hashes, size);
 }
-=======
-<<<<<<< HEAD
-}
-=======
-
-    fclose(d);
-    // free line
-    free(line);
-    freeAA(hashes, size);
-    printf("%d hashes cracked!\n", count);
-    free(line);
-    freeAA(hashes, size);
-}
->>>>>>> b576cd3 (qsort challenge | +comments)
 
 int alphabetic(const void *a, const void *b)
 {
@@ -119,9 +106,4 @@ int alphabetic(const void *a, const void *b)
 int strsearch(const void *key, const void *elem)
 {
     return strcmp((char**)key, (char**)elem);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
