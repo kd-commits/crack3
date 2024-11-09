@@ -11,15 +11,6 @@
 #define PASS_LEN 50     // Maximum length any password will be.
 #define HASH_LEN 33     // Length of hash plus one for null.
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "fileutil.h"
-
-int alphabetic(const void *a, const void *b);
-int strsearch(const void *key, const void *elem);
-
 int alphabetic(const void *a, const void *b);
 int strsearch(const void *key, const void *elem);
 
@@ -39,13 +30,7 @@ int main(int argc, char *argv[])
     
     int size;
     char **hashes = loadFileAA(argv[1], &size);
-
-    // CHALLENGE1: Sort the hashes using qsort.
-    qsort(hashes, size, sizeof(char*), alphabetic);
-
-    // TODO
-    // Open the password file for reading.
-
+    
     // CHALLENGE1: Sort the hashes using qsort.
     qsort(hashes, size, sizeof(char*), alphabetic);
 
@@ -76,8 +61,6 @@ int main(int argc, char *argv[])
         char *target = md5(line, strlen(line));
         char *found = substringSearchAA(target, hashes, size); // linear search
         if (found)
-        char *found = substringSearchAA(target, hashes, size); // linear search
-        if (found)
         {
             printf("%s %s\n", line, found);
             count++;
@@ -105,5 +88,5 @@ int alphabetic(const void *a, const void *b)
 
 int strsearch(const void *key, const void *elem)
 {
-    return strcmp((char**)key, (char**)elem);
+    return strcmp((char*)key, (char*)elem);
 }
