@@ -52,7 +52,6 @@ char ** loadFileAA(char *filename, int *size)
             arr = realloc(arr, (CAPACITY + CAP_INCREMENT) * sizeof(char *));
             CAPACITY += CAP_INCREMENT;
         }
-
 		// Allocate memory for the string (str).
 		char *str = malloc((strlen(line) + 1) * sizeof(char));
 		
@@ -74,6 +73,12 @@ char ** loadFileAA(char *filename, int *size)
 
 char (*loadFile2D(char *filename, int *size))[COLS]
 {
+    FILE *in = fopen(filename, "r");
+	if (!in)
+	{
+	    perror("Can't open file");
+	    exit(1);
+	}
 
     // TODO
 
@@ -92,7 +97,6 @@ char (*loadFile2D(char *filename, int *size))[COLS]
     // The size should be the number of entries in the array.
 
     // Return pointer to the array.
-
 }
 
 // Search the array for the target string.
@@ -109,7 +113,6 @@ char * substringSearchAA(char *target, char ** lines, int size)
 
 char * substringSearch2D(char *target, char (*lines)[COLS], int size)
 {
-    
     return NULL;
 }
 
