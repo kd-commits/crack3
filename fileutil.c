@@ -74,14 +74,19 @@ char ** loadFileAA(char *filename, int *size)
 
 char (*loadFile2D(char *filename, int *size))[COLS]
 {
+	FILE *in = fopen(filename, "r");
+	if (!in)
+	{
+	    perror("Can't open file");
+	    exit(1);
+	}
+	// TODO
 
-    // TODO
+	// Allocate memory for an 2D array, using COLS as the width.
+	
+	// Read the file line by line into a buffer.
 
-    // Allocate memory for an 2D array, using COLS as the width.
-
-    // Read the file line by line into a buffer.
-
-        //   Trim newline.
+		//   Trim newline.
 
 		//   Expand array if necessary (realloc).
 	
