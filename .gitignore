@@ -2,3 +2,4 @@ rockyou.txt
 rockyou3m.txt
 *.o
 core
+.vscode
