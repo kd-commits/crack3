@@ -20,12 +20,6 @@
 int alphabetic(const void *a, const void *b);
 int strsearch(const void *key, const void *elem);
 
-<<<<<<< HEAD
-int alphabetic(const void *a, const void *b);
-int strsearch(const void *key, const void *elem);
-
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -33,34 +27,11 @@ int main(int argc, char *argv[])
         printf("Usage: %s hash_file dictionary_file\n", argv[0]);
         exit(1);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
-    
->>>>>>> 6f84749 (qsort challenge | +comments)
     // TODO: Read the hashes file into an array.
     //   Use either a 2D array or an array of arrays.
     //   Use the loadFile function from fileutil.c
     //   Uncomment the appropriate statement.
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Read the hashes file into an array.
-    
-=======
-<<<<<<< HEAD
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
-    // Read the hashes file into an array.
-    
->>>>>>> 6f84749 (qsort challenge | +comments)
     int size;
     char **hashes = loadFileAA(argv[1], &size);
 
@@ -68,10 +39,6 @@ int main(int argc, char *argv[])
     qsort(hashes, size, sizeof(char*), alphabetic);
 
     // TODO
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
     // Read the hashes file into an array.
     
     int size;
@@ -81,9 +48,6 @@ int main(int argc, char *argv[])
     qsort(hashes, size, sizeof(char*), alphabetic);
 
     // TODO
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
     // Open the password file for reading.
     FILE *d = fopen(argv[2], "r");
     if (!d)
@@ -94,93 +58,36 @@ int main(int argc, char *argv[])
 
 
     // TODO:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
     // For each password, hash it, then use the array search
     // function from fileutil.h to find the hash.
     // If you find it, display the password and the hash.
     // Keep track of how many hashes were found.
     // CHALLENGE1: Use binary search instead of linear search.
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    // TODO
-=======
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
     char *line = malloc(PASS_LEN * sizeof(char));
     int count = 0;
     while (fgets(line, PASS_LEN, d))
     {
-<<<<<<< HEAD
         char *nl = strchr(line, '\n');
         if (nl) *nl = '\0';
                   
-=======
-		char *nl = strchr(line, '\n');
-		if (nl) *nl = '\0';
-		
->>>>>>> b576cd3 (qsort challenge | +comments)
         char *target = md5(line, strlen(line));
         char *found = substringSearchAA(target, hashes, size); // linear search
         if (found)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             printf("%s %s\n", line, found);
-=======
-			printf("%s %s\n", line, found);
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
-			printf("%s %s\n", line, found);
->>>>>>> 6f84749 (qsort challenge | +comments)
             count++;
         }
     }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
     // When done with the file:
     //   Close the file
     //   Display the number of hashes found.
     //   Free up memory.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
 
     fclose(d);
     printf("%d hashes cracked!\n", count);
     free(line);
     freeAA(hashes, size);
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-}
-=======
-
-    fclose(d);
-    printf("%d hashes cracked!\n", count);
-    free(line);
-    freeAA(hashes, size);
-}
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
->>>>>>> 6f84749 (qsort challenge | +comments)
 
 int alphabetic(const void *a, const void *b)
 {
@@ -193,13 +100,4 @@ int alphabetic(const void *a, const void *b)
 int strsearch(const void *key, const void *elem)
 {
     return strcmp((char**)key, (char**)elem);
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6f84749 (qsort challenge | +comments)
->>>>>>> b576cd3 (qsort challenge | +comments)
-=======
-}
->>>>>>> 6f84749 (qsort challenge | +comments)
