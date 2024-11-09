@@ -20,9 +20,6 @@
 int alphabetic(const void *a, const void *b);
 int strsearch(const void *key, const void *elem);
 
-int alphabetic(const void *a, const void *b);
-int strsearch(const void *key, const void *elem);
-
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -90,6 +87,7 @@ int main(int argc, char *argv[])
     printf("%d hashes cracked!\n", count);
     freeAA(hashes, size);
 }
+
 int alphabetic(const void *a, const void *b)
 {
     char ** aa = (char **)a;
